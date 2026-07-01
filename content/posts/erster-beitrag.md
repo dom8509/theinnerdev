@@ -1,8 +1,9 @@
 ---
 title: Erster Beitrag
-date: 2026-07-01
+created: 2026-07-01
 tags:
   - meta
+  - systemdenken
 ---
 
 Das hier ist der erste Beitrag auf **the inner dev**.

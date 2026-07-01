@@ -1,14 +1,10 @@
 ---
 title: the inner dev
+unlisted: true
 ---
 
-Willkommen bei **the inner dev** — Notizen an der Schnittstelle von Innenarbeit, Bewegung und Systemdenken.
+**the inner dev** — Notizen an der Schnittstelle von Innenarbeit, Bewegung und Systemdenken.
 
-Dieser Blog wächst als vernetzter Wissensgarten: einzelne Gedanken, die aufeinander verweisen, statt langer chronologischer Posts.
+Persönliche Entwicklung aus der Perspektive eines technischen Menschen: echte Gedankengänge, keine Content-Produktion.
 
-## Wo anfangen
-
-- [[posts/erster-beitrag|Erster Beitrag]]
-
-> [!note] Baustelle
-> Frisch aufgesetzt mit [Quartz](https://quartz.jzhao.xyz). Inhalte folgen.
+Alle Beiträge unter [Beiträge](posts) · nach Thema filtern über [Tags](tags).
