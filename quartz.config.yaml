@@ -16,30 +16,30 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: DM Serif Display
-      body: Bricolage Grotesque
+      header: Yuji Syuku
+      body: Shippori Mincho
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#f5eedd"
-        lightgray: "#e3d9c0"
-        gray: "#9a8e76"
-        darkgray: "#2d4673"
-        dark: "#16294e"
-        secondary: "#284d78"
-        tertiary: "#c8482b"
-        highlight: rgba(200, 72, 43, 0.1)
-        textHighlight: "#f4c84b88"
+        light: "#f3e9d2"
+        lightgray: "#e2d3ae"
+        gray: "#a4906c"
+        darkgray: "#4a3c2a"
+        dark: "#2a2015"
+        secondary: "#8c4a2f"
+        tertiary: "#c08a34"
+        highlight: rgba(140, 74, 47, 0.12)
+        textHighlight: "#e8c25a88"
       darkMode:
-        light: "#06182f"
-        lightgray: "#122845"
-        gray: "#7191b8"
-        darkgray: "#caddf4"
-        dark: "#eef4fc"
-        secondary: "#8fb9de"
-        tertiary: "#e0552f"
-        highlight: rgba(224, 85, 47, 0.14)
-        textHighlight: "#c9542f55"
+        light: "#131517"
+        lightgray: "#1c1f24"
+        gray: "#8b959a"
+        darkgray: "#c9cdd0"
+        dark: "#ececed"
+        secondary: "#3e93d8"
+        tertiary: "#3378e0"
+        highlight: rgba(62, 147, 216, 0.15)
+        textHighlight: "#e0a72e55"
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
@@ -168,7 +168,7 @@ plugins:
     options:
       title: Neueste Beiträge
       limit: 10
-      showTags: true
+      showTags: false
       linkToMore: posts
       hideTagPages: true
       hideFolderPages: true
