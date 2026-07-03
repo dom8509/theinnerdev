@@ -5,7 +5,7 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: null
+    provider: "plausible"
   locale: de-DE
   baseUrl: dom8509.github.io/theinnerdev
   ignorePatterns:
@@ -16,30 +16,33 @@ configuration:
     fontOrigin: googleFonts
     cdnCaching: true
     typography:
-      header: Schibsted Grotesk
-      body: Source Sans Pro
-      code: IBM Plex Mono
+      header: 
+        name: DM Serif Display
+        weights: 
+          - 400
+      body: Bricolage Grotesque
+      code: JetBrains Mono
     colors:
       lightMode:
-        light: "#faf8f8"
-        lightgray: "#e5e5e5"
-        gray: "#b8b8b8"
-        darkgray: "#4e4e4e"
-        dark: "#2b2b2b"
-        secondary: "#284b63"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#fff23688"
+        light: "#f2e0c7"
+        lightgray: "#e0cbaa"
+        gray: "#9a8e76"
+        darkgray: "#2d4673"
+        dark: "#16294e"
+        secondary: "#284d78"
+        tertiary: "#c8482b"
+        highlight: "rgba(200, 72, 43, 0.1)"
+        textHighlight: "#f4c84b88"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
-        textHighlight: "#b3aa0288"
+        light: "#06182f"
+        lightgray: "#122845"
+        gray: "#7191b8"
+        darkgray: "#caddf4"
+        dark: "#eef4fc"
+        secondary: "#8fb9de"
+        tertiary: "#e0552f"
+        highlight: "rgba(224, 85, 47, 0.14)"
+        textHighlight: "#c9542f55"
 plugins:
   - source: github:quartz-community/created-modified-date
     enabled: true
@@ -50,6 +53,9 @@ plugins:
         - git
         - filesystem
     order: 10
+  - source: ./plugins/zen
+    enabled: true
+    order: 15
   - source: github:quartz-community/syntax-highlighting
     enabled: true
     options:
@@ -76,7 +82,8 @@ plugins:
   - source: github:quartz-community/crawl-links
     enabled: true
     options:
-      markdownLinkResolution: shortest
+      markdownLinkResolution: absolute
+      lazyLoad: true
     order: 60
   - source: github:quartz-community/description
     enabled: true
@@ -126,12 +133,12 @@ plugins:
   - source: github:quartz-community/tag-page
     enabled: true
   - source: github:quartz-community/explorer
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 50
   - source: github:quartz-community/graph
-    enabled: true
+    enabled: false
     layout:
       position: right
       priority: 10
@@ -153,35 +160,46 @@ plugins:
     layout:
       position: beforeBody
       priority: 10
+      condition: not-index
   - source: github:quartz-community/content-meta
     enabled: true
     layout:
       position: beforeBody
       priority: 20
+      condition: not-index
   - source: github:quartz-community/tag-list
     enabled: true
     layout:
       position: beforeBody
       priority: 30
+  - source: ./plugins/home-image
+    enabled: true
+    options:
+      src: static/home-image.webp
+      alt: ""
+    layout:
+      position: beforeBody
+      priority: 8
   - source: github:quartz-community/recent-notes
     enabled: true
     options:
       title: Neueste Beiträge
       limit: 10
-      showTags: true
+      showTags: false
       linkToMore: posts
       hideTagPages: true
       hideFolderPages: true
     layout:
       position: left
       priority: 25
+      display: desktop-only
   - source: github:quartz-community/page-title
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 10
   - source: github:quartz-community/darkmode
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 30
@@ -213,7 +231,18 @@ plugins:
         GitHub: https://github.com/jackyzha0/quartz
         Discord Community: https://discord.gg/cRFFHYye7t
   - source: github:quartz-community/recent-notes
-    enabled: false
+    enabled: true
+    options:
+      title: Neueste Beiträge
+      limit: 10
+      showTags: false
+      linkToMore: posts
+      hideTagPages: true
+      hideFolderPages: true
+    layout:
+      position: afterBody
+      priority: 50
+      display: mobile-only
   - source: github:quartz-community/spacer
     enabled: true
     options: {}
@@ -235,7 +264,7 @@ plugins:
         - tags
         - aliases
       excludedProperties: []
-      hidePropertiesView: false
+      hidePropertiesView: true
       delimiters: ---
       language: yaml
     order: 5
@@ -268,7 +297,7 @@ plugins:
 layout:
   groups:
     toolbar:
-      priority: 35
+      priority: 10
       direction: row
       gap: 0.5rem
   byPageType:

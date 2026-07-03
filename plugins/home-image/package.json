@@ -1,0 +1,30 @@
+{
+  "name": "home-image",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Shows a custom image on the homepage (index page only), in place of the hidden article title.",
+  "exports": {
+    "./components": "./dist/components.js"
+  },
+  "quartz": {
+    "name": "home-image",
+    "displayName": "Home Image",
+    "category": "component",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "src": "static/home-image.webp",
+      "alt": ""
+    },
+    "components": {
+      "HomeImage": {
+        "displayName": "Home Image",
+        "description": "Displays a custom image on the index page only; renders nothing on every other page.",
+        "defaultPosition": "beforeBody",
+        "defaultPriority": 10
+      }
+    }
+  }
+}
