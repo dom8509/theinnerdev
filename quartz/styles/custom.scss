@@ -1,3 +1,39 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+// Yuji Syuku: a Google Font digitizing the handwriting of calligrapher Yuji
+// Kataoka — quiet, dignified, a bit calligraphic. Used to set off short,
+// reflective lines, similar in spirit to how jzhao.xyz styles its "poetry"
+// blocks. Self-hosted (like jzhao.xyz's own custom "poetry" font) rather than
+// pulled in via a CSS @import: an @import here would land in the middle of
+// the final bundled stylesheet (after base/component CSS), which is invalid
+// CSS — @import must be the first rule in a stylesheet — and broke the build.
+// The woff2 (Latin subset) lives at quartz/static/font/yuji-syuku-latin.woff2.
+@font-face {
+  font-family: "Yuji Syuku";
+  src: url("static/font/yuji-syuku-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Wrap text in markdown with <span class="zen-highlight">...</span> (or a
+// <p class="zen-highlight"> for a whole line/paragraph) to render it in Yuji
+// Syuku instead of the body font. A ```zen fenced code block (via the local
+// "zen" transformer plugin, see plugins/zen/) renders as a <pre class="zen-highlight">
+// with this same styling, line breaks preserved — the reset rules below strip
+// the default code-block chrome (border, padding, monospace font) from it.
+.zen-highlight {
+  font-family: "Yuji Syuku", serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+pre.zen-highlight {
+  border: none;
+  padding: 0;
+  position: unset;
+  overflow-x: visible;
+  white-space: pre-wrap;
+}

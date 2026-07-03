@@ -1,0 +1,19 @@
+{
+  "name": "zen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Wraps ```zen fenced code blocks in a <pre class=\"zen-highlight\"> block, styled in Yuji Syuku — the same pattern jzhao.xyz uses for its ```poetry blocks.",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "quartz": {
+    "name": "zen",
+    "displayName": "Zen",
+    "category": "transformer",
+    "version": "0.1.0",
+    "quartzVersion": ">=5.0.0",
+    "defaultEnabled": true,
+    "defaultOrder": 15
+  }
+}
