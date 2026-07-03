@@ -24,8 +24,8 @@ configuration:
       code: JetBrains Mono
     colors:
       lightMode:
-        light: "#f5eedd"
-        lightgray: "#e3d9c0"
+        light: "#f2e0c7"
+        lightgray: "#e0cbaa"
         gray: "#9a8e76"
         darkgray: "#2d4673"
         dark: "#16294e"
@@ -194,12 +194,12 @@ plugins:
       priority: 25
       display: desktop-only
   - source: github:quartz-community/page-title
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 10
   - source: github:quartz-community/darkmode
-    enabled: true
+    enabled: false
     layout:
       position: left
       priority: 30
@@ -297,7 +297,7 @@ plugins:
 layout:
   groups:
     toolbar:
-      priority: 35
+      priority: 10
       direction: row
       gap: 0.5rem
   byPageType:

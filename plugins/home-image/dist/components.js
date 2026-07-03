@@ -38,7 +38,17 @@ export const HomeImage = (opts = {}) => {
   max-height: 320px;
   object-fit: cover;
   margin: 0 0 1.5rem 0;
-  border-radius: 2px;
+  /* Fade all four edges to transparent so the banner blends into the page
+     background instead of ending in a hard rectangle. Two gradients (one
+     per axis) combined with mask-composite so the fades apply together. */
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+    linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent, black 10%, black 90%, transparent),
+    linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  mask-composite: intersect;
 }
 `
 
