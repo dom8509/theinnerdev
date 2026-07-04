@@ -18,15 +18,29 @@
   font-display: swap;
 }
 
+// Blazing Hollow (Personal Use) — a handwritten display font by Letter Hanna
+// (letterhanna.com), supplied by the user. License note embedded in the font
+// itself: free for personal/trial use, NOT for commercial use (client work,
+// branding, product packaging, social-media sales) without a paid license —
+// fine here since this is a personal blog, but flagging it for the record.
+@font-face {
+  font-family: "Blazing Hollow Personal Use";
+  src: url("static/font/blazing-hollow.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 // Wrap text in markdown with <span class="zen-highlight">...</span> (or a
-// <p class="zen-highlight"> for a whole line/paragraph) to render it in Yuji
-// Syuku instead of the body font. A ```zen fenced code block (via the local
-// "zen" transformer plugin, see plugins/zen/) renders as a <pre class="zen-highlight">
-// with this same styling, line breaks preserved — the reset rules below strip
-// the default code-block chrome (border, padding, monospace font) from it.
+// <p class="zen-highlight"> for a whole line/paragraph) to render it in
+// Blazing Hollow instead of the body font. A ```zen fenced code block (via
+// the local "zen" transformer plugin, see plugins/zen/) renders as a
+// <pre class="zen-highlight"> with this same styling, line breaks preserved
+// — the reset rules below strip the default code-block chrome (border,
+// padding, monospace font) from it.
 .zen-highlight {
-  font-family: "Yuji Syuku", serif;
-  font-size: 1.2rem;
+  font-family: "Blazing Hollow Personal Use", "Yuji Syuku", serif;
+  font-size: 1.4rem;
   line-height: 1.8;
 }
 
@@ -36,4 +50,58 @@ pre.zen-highlight {
   position: unset;
   overflow-x: visible;
   white-space: pre-wrap;
+}
+
+// Site title (sidebar/toolbar) in the same Blazing Hollow font as the zen
+// blocks, sized up a bit since handwritten scripts read smaller than the
+// default title serif at the same font-size.
+.page-title {
+  font-family: "Blazing Hollow Personal Use", "Yuji Syuku", serif;
+  font-size: 2.1rem;
+}
+
+// The title+search+reader-mode toolbar row grows the title (groupOptions.grow
+// in quartz.config.yaml) so search/reader-mode sit pinned to the right edge.
+// That spread only makes sense on the full-width mobile header bar — on the
+// narrow desktop sidebar it should just sit compact instead. YAML layout
+// options apply at all breakpoints, so the desktop-only exception is done
+// here by overriding the inline flex-grow style quartz generates.
+@media all and ($desktop) {
+  .left.sidebar .flex-component > div:has(> .page-title) {
+    flex-grow: 0 !important;
+  }
+}
+
+// Date + reading time in Blazing Hollow: the post page's date/reading-time
+// line (.content-meta, from content-meta) and each entry's date in the
+// Recent Notes sidebar (.meta, from recent-notes).
+.content-meta,
+.recent-notes .meta {
+  font-family: "Blazing Hollow Personal Use", "Yuji Syuku", serif;
+}
+
+// Collapse the toolbar search to just the magnifying-glass icon (drop the
+// bar/placeholder text) — clicking the icon still opens the full search
+// modal, so the expanded bar in the toolbar itself is redundant.
+.search {
+  min-width: 0;
+  max-width: none;
+
+  & > .search-button {
+    border: none;
+    width: auto;
+    height: 20px;
+    padding: 0;
+
+    & > p {
+      display: none;
+    }
+
+    & svg {
+      margin: 0;
+      width: 16px;
+      min-width: 16px;
+      height: 16px;
+    }
+  }
 }
