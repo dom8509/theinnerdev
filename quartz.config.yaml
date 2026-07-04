@@ -5,7 +5,7 @@ configuration:
   enableSPA: true
   enablePopovers: true
   analytics:
-    provider: "plausible"
+    provider: plausible
   locale: de-DE
   baseUrl: dom8509.github.io/theinnerdev
   ignorePatterns:
@@ -148,8 +148,6 @@ plugins:
       position: left
       priority: 20
       group: toolbar
-      groupOptions:
-        grow: true
   - source: github:quartz-community/backlinks
     enabled: true
     layout:
@@ -194,10 +192,13 @@ plugins:
       priority: 25
       display: desktop-only
   - source: github:quartz-community/page-title
-    enabled: false
+    enabled: true
     layout:
       position: left
-      priority: 10
+      priority: 5
+      group: toolbar
+      groupOptions:
+        grow: true
   - source: github:quartz-community/darkmode
     enabled: false
     layout:
@@ -241,7 +242,7 @@ plugins:
       hideFolderPages: true
     layout:
       position: afterBody
-      priority: 50
+      priority: 25
       display: mobile-only
   - source: github:quartz-community/spacer
     enabled: true
@@ -297,7 +298,7 @@ plugins:
 layout:
   groups:
     toolbar:
-      priority: 10
+      priority: 8
       direction: row
       gap: 0.5rem
   byPageType:
